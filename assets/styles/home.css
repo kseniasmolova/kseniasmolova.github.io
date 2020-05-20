@@ -1,0 +1,32 @@
+h1 {
+  text-align: center;
+}
+h1 + p {
+  margin-top: 0;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+#logo-anim-bg {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: #232323;
+  z-index: 2;
+  transition: opacity 350ms ease-out, visibility 350ms;
+}
+#logo-anim {
+  width: 100%;
+  max-width: 750px;
+  margin-bottom: 10%;
+}
+.anim--hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
