@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css2?family=Abhaya + Libre:wght@400;600;700&display=swap);
+
 body {
   margin: 0;
   background: #232323;
@@ -29,4 +31,7 @@ a,
 a:hover,
 a:focus {
   color: currentColor;
+  text-decoration: none;
+  margin-bottom: 1rem;
+  opacity: 0.7;
 }
