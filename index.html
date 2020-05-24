@@ -18,13 +18,15 @@
     <meta name="msapplication-config" content="./assets/icons/browserconfig.xml" />
     <meta name="theme-color" content="#000000" />
     <script>
+      function insert(src, onload) {
+        return document.head.appendChild(Object.assign(document.createElement('script'), { src, onload }));
+      }
       if (!window.IntersectionObserver)
         document.write(
           '<script src="https://cdn.jsdelivr.net/npm/intersection-observer/intersection-observer.min.js"><\/script>',
         );
 
       if (!('scrollBehavior' in document.documentElement.style)) {
-        const insert = (src) => document.head.append(Object.assign(document.createElement('script'), { src }));
         insert('https://unpkg.com/smoothscroll-polyfill/dist/smoothscroll.min.js');
         insert('https://unpkg.com/smoothscroll-anchor-polyfill');
       }
@@ -40,13 +42,22 @@
 
     <!-- Background Video -->
     <video
-      class="absolute top-0 left-0 object-cover w-full h-full -z-1"
+      class="absolute inset-0 object-cover w-full h-full -z-1 max-w-none"
+      style="font-family: 'object-fit: cover';"
       src="./assets/showreel.mp4"
       loop
       muted
       playsinline
+      id="bg-video"
     ></video>
     <div class="absolute top-0 left-0 w-full h-full bg-black opacity-50 -z-1"></div>
+    <script>
+      if (/Edge/.test(navigator.userAgent) || !('object-fit' in new Image().style)) {
+        insert('https://unpkg.com/object-fit-videos/dist/object-fit-videos.min.js', () => {
+          objectFitVideos(document.querySelector('#bg-video'));
+        });
+      }
+    </script>
 
     <!-- Showreel Overlay -->
     <div class="fixed top-0 left-0 z-30 flex hidden w-full h-full p-8 bg-premiere-dark" id="showreel">
