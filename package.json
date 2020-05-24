@@ -1,0 +1,23 @@
+{
+  "name": "ksenia",
+  "version": "1.0.0",
+  "description": "> :)",
+  "main": "index.js",
+  "scripts": {
+    "css": "tailwind build ./tailwind.css -o assets/styles/index.min.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kseniasmolova/kseniasmolova.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kseniasmolova/kseniasmolova.github.io/issues"
+  },
+  "homepage": "https://github.com/kseniasmolova/kseniasmolova.github.io#readme",
+  "devDependencies": {
+    "tailwindcss": "^1.4.6"
+  }
+}
