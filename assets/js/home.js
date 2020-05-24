@@ -20,7 +20,7 @@ const updateWindowHeight = () => {
   document.documentElement.style.setProperty('--vh', `${vh}px`);
 };
 updateWindowHeight();
-window.addEventListener('resize', debounce(updateWindowHeight, 500));
+// window.addEventListener('resize', debounce(updateWindowHeight, 500));
 
 const animBg = document.querySelector('#logo-anim-bg');
 const animElement = document.querySelector('#logo-anim');
