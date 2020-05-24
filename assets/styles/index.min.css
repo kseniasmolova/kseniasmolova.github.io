@@ -961,6 +961,10 @@ body {
   left: 0;
 }
 
+.resize{
+  resize: both;
+}
+
 .shadow-md{
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
@@ -1034,6 +1038,12 @@ body {
 @media (min-width: 768px){
   .md\:bg-transparent{
     background-color: transparent;
+  }
+
+  .md\:bg-premiere-light{
+    --bg-opacity: 1;
+    background-color: #232323;
+    background-color: rgba(35, 35, 35, var(--bg-opacity));
   }
 
   .md\:flex-row{
