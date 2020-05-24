@@ -1,8 +1,30 @@
 'use strict';
 
+const debounce = (fn, wait = 0) => {
+  let timeout;
+
+  return function(...args) {
+    const later = () => {
+      timeout = null;
+      fn.apply(this, args);
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+};
+
 // Manually calculate mobile viewport size, see:
 // https://css-tricks.com/the-trick-to-viewport-units-on-mobile/
-document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
+const updateHeight = () => {
+  document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
+};
+
+updateHeight();
+if (!/iOS/.test(navigator.userAgent)) {
+  window.addEventListener('resize', debounce(updateHeight, 350));
+}
+
+
 
 const animBg = document.querySelector('#logo-anim-bg');
 const animElement = document.querySelector('#logo-anim');
