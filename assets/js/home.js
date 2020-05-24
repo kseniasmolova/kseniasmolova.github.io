@@ -1,26 +1,8 @@
 'use strict';
 
-const debounce = (fn, wait = 0) => {
-  let timeout;
-
-  return function (...args) {
-    const later = () => {
-      timeout = null;
-      fn.apply(this, args);
-    };
-    clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
-  };
-};
-
 // Manually calculate mobile viewport size, see:
 // https://css-tricks.com/the-trick-to-viewport-units-on-mobile/
-const updateWindowHeight = () => {
-  const vh = window.innerHeight * 0.01;
-  document.documentElement.style.setProperty('--vh', `${vh}px`);
-};
-updateWindowHeight();
-// window.addEventListener('resize', debounce(updateWindowHeight, 500));
+document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
 
 const animBg = document.querySelector('#logo-anim-bg');
 const animElement = document.querySelector('#logo-anim');
@@ -46,15 +28,15 @@ anim.onComplete = () => {
  */
 
 class FluentButton {
-  constructor(el, { clickable = false } = {}) {
+  constructor(el, { ripple = false } = {}) {
     this.el = typeof el === 'string' ? document.querySelector(el) : el;
     if (FluentButton.elements.has(this.el)) return;
     FluentButton.elements.add(this.el);
 
-    if (clickable) this.el.classList.add('clickable');
-    if (clickable) this.el.addEventListener('touchstart', this.startRipple);
-    if (clickable) this.el.addEventListener('mousedown', this.startRipple);
-    if (clickable) this.el.onmousedown = this.el.ontouchstart = this.addPressedState;
+    if (ripple) this.el.classList.add('ripple');
+    if (ripple) this.el.addEventListener('touchstart', this.startRipple);
+    if (ripple) this.el.addEventListener('mousedown', this.startRipple);
+    if (ripple) this.el.onmousedown = this.el.ontouchstart = this.addPressedState;
     this.el.onmouseup = this.el.onmouseleave = this.el.ontouchend = this.removePressedState;
 
     FluentButton.outerRevealElements.set(this.el, this.getElementDimensions(this.el));
@@ -130,7 +112,7 @@ FluentButton.outerRevealElements = new Map();
 FluentButton.outerRevealThreshold = 75;
 FluentButton.observingOuterReveal = false;
 
-new FluentButton('#showreel_btn', { clickable: true });
+new FluentButton('#showreel_btn', { ripple: true });
 new FluentButton('#mail');
 
 const stickyDetect = document.querySelector('#sticky');

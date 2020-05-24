@@ -595,6 +595,12 @@ video {
   height: auto;
 }
 
+*,
+::before,
+::after {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
 html {
   height: 100%;
   scrollbar-color: #fff #1b1b1b;
@@ -859,6 +865,10 @@ body {
   margin-top: 0.25rem;
 }
 
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
 .ml-2 {
   margin-left: 0.5rem;
 }
@@ -932,6 +942,10 @@ body {
 .py-8 {
   padding-top: 2rem;
   padding-bottom: 2rem;
+}
+
+.pt-0 {
+  padding-top: 0;
 }
 
 .pt-12 {
@@ -1101,6 +1115,14 @@ body {
 
   .md\:mb-0 {
     margin-bottom: 0;
+  }
+
+  .md\:mb-4 {
+    margin-bottom: 1rem;
+  }
+
+  .md\:mr-12 {
+    margin-right: 3rem;
   }
 
   .md\:mb-24 {

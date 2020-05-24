@@ -1,5 +1,11 @@
 @tailwind base;
 
+*,
+::before,
+::after {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
 html {
   @apply h-full;
   scrollbar-color: #fff theme('colors.premiere-dark');
@@ -13,7 +19,8 @@ body {
   @apply bg-premiere-light;
   @apply text-white;
   @apply min-h-full;
-  @apply flex flex-col;
+  @apply flex;
+  @apply flex-col;
 }
 
 ::-webkit-scrollbar {

@@ -79,7 +79,7 @@
 
 /* The ripple following the cursor */
 
-.clickable .fluent-btn__btn::after {
+.ripple .fluent-btn__btn::after {
   content: '';
   position: absolute;
   left: 0;

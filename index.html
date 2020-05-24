@@ -60,12 +60,13 @@
     </script>
 
     <!-- Showreel Overlay -->
-    <div class="fixed top-0 left-0 z-30 flex hidden w-full h-full p-8 bg-premiere-dark" id="showreel">
+    <div class="fixed top-0 left-0 z-30 flex flex-col hidden w-full h-full p-8 pt-0 bg-premiere-dark" id="showreel">
       <button
-        class="absolute top-0 right-0 p-4"
+        class="block p-4 ml-auto"
         onclick="
+          document.body.classList.remove('overflow-hidden');
           document.querySelector('#showreel').classList.add('hidden');
-          document.querySelector('#showreel iframe').src='';
+          document.querySelector('#showreel iframe').src = '';
         "
       >
         Schließen
@@ -74,13 +75,15 @@
           <path d="M21.2 78.9a3.7 3.7 0 005.3 0l23.6-23.6 23.6 23.6c1.4 1.6 3.7 1.7 5.3.4s1.7-3.7.4-5.3l-.4-.4L55.4 50 79 26.4a3.8 3.8 0 00.2-5.3 3.8 3.8 0 00-5.3-.2l-.2.2-23.6 23.6-23.6-23.6a3.8 3.8 0 00-5.3.2 3.8 3.8 0 000 5.1L44.8 50 21.2 73.6a3.9 3.9 0 000 5.3z"/>
         </svg>
       </button>
-      <div class="relative w-full h-0 m-auto overflow-hidden" style="padding-bottom: 56.25%;">
-        <iframe
-          class="absolute w-full h-full bg-black"
-          frameborder="0"
-          allow="autoplay; fullscreen"
-          allowfullscreen
-        ></iframe>
+      <div class="w-full m-auto" style="max-width: calc(90vh / 9 * 16);">
+        <div class="relative w-full h-0 m-auto overflow-hidden" style="padding-bottom: 56.25%;">
+          <iframe
+            class="absolute w-full h-full bg-black"
+            frameborder="0"
+            allow="autoplay; fullscreen"
+            allowfullscreen
+          ></iframe>
+        </div>
       </div>
     </div>
 
@@ -124,8 +127,9 @@
         <button
           class="shadow-md fluent-btn__btn"
           onclick="
+            document.body.classList.add('overflow-hidden');
+            document.querySelector('#showreel iframe').src = 'https://player.vimeo.com/video/421996682?autoplay=1&dnt=1&byline=0&title=0&portrait=0';
             document.querySelector('#showreel').classList.remove('hidden');
-            document.querySelector('#showreel iframe').src='https://player.vimeo.com/video/421996682?autoplay=1&dnt=1&byline=0&title=0&portrait=0'
           "
         >
           <span class="flex items-center mx-4 my-2 text-sm tracking-wide uppercase">
@@ -151,7 +155,7 @@
                   <h3 class="font-bold">Weserfährenparty</h3>
                   <span class="ml-auto opacity-50">Kamera, Schnitt</span>
                 </div>
-                <p class="mt-1 mb-4 text-sm leading-snug md:text-base">Afterpartyfilm für HS Bremerhaven</p>
+                <p class="mt-1 mb-4 text-sm leading-snug md:text-base">Afterpartyfilm für die HS Bremerhaven</p>
 
                 <div class="relative w-full h-0 overflow-hidden" style="padding-bottom: 56.25%;">
                   <iframe
@@ -198,17 +202,20 @@
                   <span class="ml-auto opacity-50">Licht, Storyboard</span>
                 </div>
                 <p class="mt-1 mb-4 text-sm leading-snug md:text-base">
-                  Trailer des Kurzfilms gegen antisemitische Vorurteile, Wegsehen und Schweigen.
+                  Trailer des Kurzfilms gegen antisemitische Vorurteile, Wegsehen und Schweigen
                 </p>
 
                 <div class="relative w-full h-0 overflow-hidden" style="padding-bottom: 50%;">
-                  <iframe
-                    class="absolute w-full h-full"
-                    src="https://player.vimeo.com/video/421996943?dnt=1&byline=0&title=0&portrait=0"
-                    frameborder="0"
-                    allow="autoplay; fullscreen"
-                    allowfullscreen
-                  ></iframe>
+                  <div class="relative w-full h-0 overflow-hidden" style="padding-bottom: 56.25%;">
+                    <iframe
+                      class="absolute w-full h-full"
+                      style="top: -6.25%;"
+                      src="https://player.vimeo.com/video/421996943?dnt=1&byline=0&title=0&portrait=0"
+                      frameborder="0"
+                      allow="autoplay; fullscreen"
+                      allowfullscreen
+                    ></iframe>
+                  </div>
                 </div>
               </div>
             </article>
@@ -320,7 +327,8 @@
             <p>
               Als leidenschaftliche Filmemacherin drehe ich am liebsten Image-, Erklär- und Produktfilme. Spezialisiert
               bin ich auf Postproduktion und interessiere mich für Motion Graphics. Außerdem habe ich über ein Jahr
-              Erfahrung in der Hochzeitsfilmografie und hatte Glück mich bei mehreren Live Veranstaltungen zu beweisen.
+              Erfahrung in der Hochzeitsfilmografie und hatte das Glück, mich bei mehreren Live Veranstaltungen beweisen
+              zu können.
               <br /><br />
             </p>
           </div>
@@ -330,10 +338,10 @@
           </div>
         </div>
 
-        <p class="mb-4">
+        <p class="mb-2 md:mb-4">
           Ich bin offen für alle Arten von neuen Projekten und freue mich auf deine Nachricht!
         </p>
-        <img src="./assets/images/ksenia_signature.png" alt="" />
+        <img style="max-width: 190px;" class="ml-auto md:mr-12" src="./assets/images/ksenia_signature.png" alt="" />
       </section>
 
       <section class="flex flex-col mb-20">
