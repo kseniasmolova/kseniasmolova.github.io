@@ -4,10 +4,14 @@ class FluentButton {
     if (FluentButton.elements.has(this.el)) return;
     FluentButton.elements.add(this.el);
 
-    if (ripple) this.el.classList.add('ripple');
-    if (ripple) this.el.addEventListener('touchstart', this.startRipple);
-    if (ripple) this.el.addEventListener('mousedown', this.startRipple);
-    if (ripple) this.el.onmousedown = this.el.ontouchstart = this.addPressedState;
+    if (ripple) {
+      this.el.classList.add('ripple');
+      this.el.addEventListener('mousedown', this.startRipple);
+      this.el.addEventListener('mousedown', this.addPressedState);
+      this.el.addEventListener('touchstart', this.startRipple, { passive: true });
+      this.el.addEventListener('touchstart', this.addPressedState, { passive: true });
+    }
+
     this.el.onmouseup = this.el.onmouseleave = this.el.ontouchend = this.removePressedState;
 
     FluentButton.outerRevealElements.set(this.el, this.getElementDimensions(this.el));
