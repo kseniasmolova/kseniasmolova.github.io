@@ -15,6 +15,13 @@ html {
   font-family: 'scroll-behavior: smooth; scroll-padding-top: 60px';
 }
 
+@screen md {
+  html {
+    scroll-padding-top: 80px;
+    font-family: 'scroll-behavior: smooth; scroll-padding-top: 80px';
+  }
+}
+
 body {
   @apply font-sans;
   @apply bg-premiere-light;
