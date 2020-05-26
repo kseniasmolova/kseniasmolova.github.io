@@ -19,11 +19,14 @@
     <meta name="theme-color" content="#000000" />
     <script>
       function insert(src, onload) {
-        return document.head.appendChild(Object.assign(document.createElement('script'), { src, onload }));
+        const script = document.createElement('script');
+        script.src = src;
+        script.onload = onload;
+        return document.head.appendChild(script);
       }
       if (!window.IntersectionObserver)
         document.write(
-          '<script src="https://cdn.jsdelivr.net/npm/intersection-observer/intersection-observer.min.js"><\/script>',
+          '<script src="https://cdn.jsdelivr.net/npm/intersection-observer/intersection-observer.min.js"><\/script>'
         );
 
       if (!('scrollBehavior' in document.documentElement.style)) {
@@ -53,7 +56,7 @@
     <div class="absolute top-0 left-0 w-full h-full bg-black opacity-50 -z-1"></div>
     <script>
       if (/Edge/.test(navigator.userAgent) || !('object-fit' in new Image().style)) {
-        insert('https://unpkg.com/object-fit-videos/dist/object-fit-videos.min.js', () => {
+        insert('https://unpkg.com/object-fit-videos/dist/object-fit-videos.min.js', function () {
           objectFitVideos(document.querySelector('#bg-video'));
         });
       }
@@ -62,7 +65,7 @@
     <!-- Showreel Overlay -->
     <div class="fixed top-0 left-0 z-30 flex flex-col hidden w-full h-full p-8 pt-0 bg-premiere-dark" id="showreel">
       <button
-        class="block p-4 ml-auto"
+        class="self-end block p-4"
         onclick="
           document.body.classList.remove('overflow-hidden');
           document.querySelector('#showreel').classList.add('hidden');
@@ -71,7 +74,7 @@
       >
         Schließen
         <!-- prettier-ignore -->
-        <svg xmlns="http://www.w3.org/2000/svg" class="inline w-6 align-bottom fill-current" viewBox="0 0 100 100">
+        <svg xmlns="http://www.w3.org/2000/svg" class="inline w-6 h-6 align-bottom fill-current" viewBox="0 0 100 100">
           <path d="M21.2 78.9a3.7 3.7 0 005.3 0l23.6-23.6 23.6 23.6c1.4 1.6 3.7 1.7 5.3.4s1.7-3.7.4-5.3l-.4-.4L55.4 50 79 26.4a3.8 3.8 0 00.2-5.3 3.8 3.8 0 00-5.3-.2l-.2.2-23.6 23.6-23.6-23.6a3.8 3.8 0 00-5.3.2 3.8 3.8 0 000 5.1L44.8 50 21.2 73.6a3.9 3.9 0 000 5.3z"/>
         </svg>
       </button>
@@ -118,12 +121,12 @@
 
     <div
       class="flex flex-col px-4 pt-12 md:pt-4"
-      style="transition: height 200ms ease-out; height: calc(var(--vh, 1vh) * 100 - 80px);"
+      style="transition: height 200ms ease-out; height: calc(100vh - 80px); height: calc(var(--vh, 1vh) * 100 - 80px);"
     >
       <h1 class="mb-4 text-3xl leading-none text-center md:text-5xl">Ksenia Smolova</h1>
       <p class="mb-4 text-xl text-center">Film & Motion</p>
 
-      <div class="mx-auto mt-auto mb-16 md:mb-24 fluent-btn" id="showreel_btn">
+      <div class="self-center mt-auto mb-16 md:mb-24 fluent-btn" style="--color: #1b1b1b;" id="showreel_btn">
         <button
           class="shadow-md fluent-btn__btn"
           onclick="
@@ -135,7 +138,7 @@
           <span class="flex items-center mx-4 my-2 text-sm tracking-wide uppercase">
             Showreel 2020 ansehen
             <!-- prettier-ignore -->
-            <svg class="w-6 ml-2 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+            <svg class="w-6 h-6 ml-2 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
               <path d="M16.8 18C10.8 18 6 22.8 6 28.8v42.4c0 6 4.8 10.8 10.8 10.8h66.4c6 0 10.8-4.8 10.8-10.8V28.7C94 22.9 89.1 18 83.2 18H27a2 2 0 100 4h56c3.9 0 6.9 3 6.9 6.8v42.4c0 3.8-3 6.8-6.8 6.8H16.8C13 78 10 75 10 71.2V28.7c0-3.7 3-6.7 6.8-6.7H19a2 2 0 100-4h-2.3zm24 14a2 2 0 00-1.8 2v32a2 2 0 003 1.7l24-16a2 2 0 00.1-3.4l-24-16a2 2 0 00-1.3-.3zm2.2 5.8L61.4 50 43 62.3V37.8z" />
             </svg>
           </span>
@@ -312,7 +315,7 @@
       <section class="mb-20">
         <h2 class="mb-16 text-sm font-medium uppercase border-b-2 opacity-25" id="ueber-mich">Über mich</h2>
         <div class="flex flex-col-reverse items-start mb-4 md:flex-row">
-          <div>
+          <div class="w-full">
             <p class="mb-4">
               Moin!<br />
               Ich bin Ksenia | 27 Jahre alt | Filmemacherin<br />
@@ -345,12 +348,12 @@
 
       <section class="flex flex-col mb-20">
         <h2 class="mb-16 text-sm font-medium uppercase border-b-2 opacity-25" id="kontakt">Kontakt</h2>
-        <div class="mx-auto fluent-btn" style="--color: #232323;" id="mail">
+        <div class="self-center fluent-btn" style="--color: #232323;" id="mail">
           <a class="block p-0 fluent-btn__btn" style="padding-bottom: 2px;" href="mailto:kseniasmolova@gmail.com">
             <span class="flex items-center mx-4 my-2 text-sm tracking-wide uppercase">
               kseniasmolova@gmail.com
               <!-- prettier-ignore -->
-              <svg class="w-6 ml-2 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+              <svg class="w-6 h-6 ml-2 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
                 <path d="M52 12.5H12a7 7 0 00-7 7v25a7 7 0 007 7h40a7 7 0 007-7v-25a7 7 0 00-7-7zm5 32a5 5 0 01-5 5H12a5 5 0 01-5-5v-25a5 5 0 015-5h40a5 5 0 015 5zm-3.7-23a1 1 0 01-.3 1.4L32.5 35.6a1 1 0 01-1 0L11 23a1 1 0 111-1.7l20 12.4 20-12.4a1 1 0 011.3.3z"/>
               </svg>
             </span>

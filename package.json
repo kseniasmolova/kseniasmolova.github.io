@@ -19,5 +19,10 @@
   "homepage": "https://github.com/kseniasmolova/kseniasmolova.github.io#readme",
   "devDependencies": {
     "tailwindcss": "^1.4.6"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "printWidth": 120,
+    "trailingComma": "es5"
   }
 }

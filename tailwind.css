@@ -12,6 +12,7 @@ html {
   scrollbar-width: thin;
   scroll-behavior: smooth;
   --scroll-behavior: smooth;
+  font-family: 'scroll-behavior: smooth';
 }
 
 body {
@@ -38,3 +39,10 @@ body {
 @tailwind components;
 
 @tailwind utilities;
+
+.object-cover {
+  object-fit: cover;
+}
+.sticky {
+  position: sticky;
+}

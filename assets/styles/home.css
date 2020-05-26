@@ -19,7 +19,7 @@
 }
 
 .fluent-btn {
-  --color: #1b1b1b;
+  --color: #232323;
   z-index: 0;
   transition: transform 0.2s ease;
   transform: translate3d(0, 0, 0);
@@ -46,7 +46,8 @@
   padding: 2px;
   color: var(--txt-clr, #fff);
   border: none;
-  background: var(--color) content-box;
+  background: #232323;
+  background: var(--color);
   background-clip: content-box;
 }
 
