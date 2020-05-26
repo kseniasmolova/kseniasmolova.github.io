@@ -1,7 +1,7 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
-  target: 'ie11',
+  target: ['ie11', { objectFit: 'relaxed', position: 'relaxed' }],
   purge: ['**/*.html', 'assets/**/*.js'],
   theme: {
     container: { center: true, padding: '1rem' },

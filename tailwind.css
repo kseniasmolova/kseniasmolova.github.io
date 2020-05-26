@@ -39,10 +39,3 @@ body {
 @tailwind components;
 
 @tailwind utilities;
-
-.object-cover {
-  object-fit: cover;
-}
-.sticky {
-  position: sticky;
-}

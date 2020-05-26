@@ -898,6 +898,11 @@ body {
   max-width: 48rem;
 }
 
+.object-cover {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 .opacity-25 {
   opacity: 0.25;
 }
@@ -958,6 +963,11 @@ body {
 
 .relative {
   position: relative;
+}
+
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
 }
 
 .inset-0 {
@@ -1057,16 +1067,6 @@ body {
 
 .duration-150 {
   transition-duration: 150ms;
-}
-
-.object-cover {
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
-.sticky {
-  position: -webkit-sticky;
-  position: sticky;
 }
 
 @media (min-width: 768px) {
