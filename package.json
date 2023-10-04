@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/kseniasmolova/kseniasmolova.github.io#readme",
   "devDependencies": {
-    "tailwindcss": "^1.4.6"
+    "tailwindcss": "^3.3.3"
   },
   "prettier": {
     "singleQuote": true,
